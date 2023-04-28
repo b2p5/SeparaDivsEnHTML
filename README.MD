@@ -1,6 +1,6 @@
 # Programa que extrae divs de un archivo HTML
 
-Este programa está hecho en Python y utiliza la librería BeautifulSoup para analizar un archivo HTML y obtener todos los elementos div presentes en él.
+Este programa está hecho en **Python** y utiliza la librería **BeautifulSoup** para analizar un archivo HTML y obtener todos los elementos div presentes en él.
 
 ## Uso
 
