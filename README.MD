@@ -10,7 +10,7 @@ Para utilizar el programa, sigue los siguientes pasos:
 2. Abre una terminal y navega hasta la carpeta donde se encuentran los archivos.
 3. Ejecuta el programa con el siguiente comando: 
 
-python extraeDivs.py ejemplo.html
+''python extraeDivs.py ejemplo.html''
 
 Donde `ejemplo.html` es el nombre del archivo que quieres analizar.
 
