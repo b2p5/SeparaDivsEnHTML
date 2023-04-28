@@ -41,7 +41,7 @@ Supongamos que queremos analizar el siguiente archivo HTML:
 ```
 
 
-# El resultado del programa sería el siguiente:
+### El resultado del programa sería el siguiente:
 
 ```
 <div id="primer_div_Nivel1">
