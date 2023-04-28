@@ -1,0 +1,4 @@
+El programa extraeDivs_2.py hecho en python y utiliza la librería BeautifulSoup
+
+Este programa parte de un fichero html
+el cual analiza y obtiene todos los "DIV" 
