@@ -1,45 +1,25 @@
 from bs4 import BeautifulSoup
 
-# Ejemplo de código HTML para analizar
-html = """
-<html>
-    <head>
-        <title>Test</title>
-    </head>
-    <body>
-        <div id="primer_div_Nivel1">
-            <div id="div_Nivel2">
-                <div id="div_Nivel3">
-                </div>
-            </div>
-        </div>
-        <div id="segundo_div_Nivel1">
-        </div>
-    </body>
-</html>
-"""
+def get_div_hierarchy(html_file):
+    with open(html_file, encoding="utf8") as fp:
+        soup = BeautifulSoup(fp, 'html.parser')
+        divs = soup.find_all('div')
+        hierarchy = {}
 
-# Carga el HTML en un objeto BeautifulSoup
-soup = BeautifulSoup(html, 'html.parser')
+        for div in divs:
+            hierarchy[div] = []
+            parent = div.find_parent('div')
+            while parent:
+                hierarchy[div].insert(0, parent)
+                parent = parent.find_parent('div')
 
-# Busca todas las etiquetas div
-divs = soup.find_all('div')
+    return hierarchy
 
-# Inicializa un diccionario para almacenar los div por niveles
-divs_por_nivel = {}
+if __name__ == '__main__':
+    html_file = "ejemplo.html"
+    hierarchy = get_div_hierarchy(html_file)
 
-# Itera a través de cada div y clasifícalos por nivel
-for div in divs:
-    # Encuentra el nivel actual del div contando cuántos padres tiene
-    nivel = len(list(div.parents))
-    
-    # Agrega el div a la lista de divs para su nivel actual
-    if nivel not in divs_por_nivel:
-        divs_por_nivel[nivel] = []
-    divs_por_nivel[nivel].append(div)
-
-# Imprime los divs clasificados por niveles
-for nivel, divs in divs_por_nivel.items():
-    print(f"Divs de nivel {nivel}: {len(divs)}")
-    for div in divs:
-        print(div)
+    for div, parents in hierarchy.items():
+        print("\n" + str(div))
+        #if parents:
+        #   print("Padre: " + " > ".join(str(parent) for parent in parents))
